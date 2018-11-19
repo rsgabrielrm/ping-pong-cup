@@ -260,7 +260,79 @@ OR
     "pageSize": 1
 }
 ```
+**Returns all registered championships**
+```
+    GET /campeonatos
+```
+Returns championships
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "nave cup"
+        }
+    ],
+    "count": 1,
+    "limit": 10,
+    "page": 1,
+    "pageSize": 1
+}
+```
+**Returns one registered championships**
+```
+    GET /campeonatos/1
+```
+Returns championships
+```json
+{
+    "id": 1,
+    "name": "nave cup"
+}
+```
 
+**New championships**
+```
+    POST /campeonatos
+```
+You have to send a header containing
+
+```json
+{   
+    "Autorization": "Bearer {your token}" 
+}
+```
+You have to send a body containing, email not update
+```json
+{
+    "nome": "Novo Campeonato"
+}
+```
+Result
+```json
+{
+    "id": 2,
+    "name": "Novo Campeonato"
+}
+```
+**Delete championships**
+```
+    DELETE /campeonatos/2
+```
+You have to send a header containing
+
+```json
+{   
+    "Autorization": "Bearer {your token}" 
+}
+```
+Result
+```json
+{
+    "code": "Success",
+    "message": "Campeonato deletado com sucesso"
+}
+```
 
 
 **Enroll championship players**
@@ -289,8 +361,3 @@ Result
     "message": "Jogadores inscritos e todas partidas foram geradas"
 }
 ```
-
-
-
-
-
