@@ -1,0 +1,27 @@
+{
+  "name": "newping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "cd db && jest --detectOpenHandles --runInBand"
+  },
+  "keywords": [],
+  "author": "Gabriel Menezes",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "dotenv": "^6.1.0",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.15.2",
+    "mysql": "^2.16.0",
+    "restify": "^7.2.2",
+    "restify-errors": "^6.1.1"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "supertest": "^3.3.0"
+  }
+}
