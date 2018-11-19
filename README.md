@@ -31,7 +31,7 @@ Tests
 You have to send a body containing
 ```json
 {
-    "nome": "User test",
+	"nome": "User test",
 	"email": "userteste@newtest.com",
 	"senha": "mypassword"
 }
@@ -39,8 +39,8 @@ You have to send a body containing
 Return new player created
 ```json
 {
-    "id": 3,
-    "nome": "User test",
+	"id": 3,
+	"nome": "User test",
 	"email": "userteste@newtest.com"
 }
 ```
@@ -59,8 +59,8 @@ You have to send a body containing
 Returns logged player
 ```json
 {
-    "nome": "User test",
+   	"nome": "User test",
 	"email": "userteste@newtest.com",
-    "accessToken": "asdfasciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmcmFuY3luZWVAdGVzdGUuY29tIiwiaXNzIjoicGluZy1wb25nIiwiaWF0IjoxNTQyNjQ4ODQ0fQ.3rAG5CO-eZd_uQiSHTUBYsvB5BVHIOoKy96tMawqr8"
+ 	"accessToken": "asdfasciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmcmFuY3luZWVAdGVzdGUuY29tIiwiaXNzIjoicGluZy1wb25nIiwiaWF0IjoxNTQyNjQ4ODQ0fQ.3rAG5CO-eZd_uQiSHTUBYsvB5BVHIOoKy96tMawqr8"
 }
 ```
