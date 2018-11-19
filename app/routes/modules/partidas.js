@@ -42,8 +42,26 @@ module.exports = function partidas (server) {
 
   server.get('/partidas/:id', [protectd , async (req, res, next) => {
     const {id} = req.params
-    await db('matches').where({ id }).first().then((result) => {
-        res.send(result)
+    await db('matches')
+      .where({ 'matches.id': id })
+      .join('players AS p1', 'matches.id_player_one', 'p1.id')
+      .join('players AS p2', 'matches.id_player_two', 'p2.id')
+      .select('matches.*', {name_one:'p1.name', email_one:'p1.email', name_two:'p2.name', email_two:'p2.email'})
+      .map(function(row) {
+        let li =
+        {
+          "id": row.id,
+          "id_cup": row.id_cup,
+          "player_one": {"id": row.id_player_one, "name": row.name_one, "email": row.email_one},
+          "player_two": {"id": row.id_player_two, "name": row.name_two, "email": row.email_two},
+          "id_champion_player": row.id_champion_player,
+          "result_one": row.result_one,
+          "result_two": row.result_two,
+          "finished": row.finished
+        }
+        return li;
+      }).then((result) => {
+        res.send(result[0])
         next()
       }).catch(
         next(false)
