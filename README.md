@@ -361,3 +361,138 @@ Result
     "message": "Jogadores inscritos e todas partidas foram geradas"
 }
 ```
+
+**All matches generated**
+```
+    GET /partidas
+```
+You have to send a header containing
+
+```json
+{   
+    "Autorization": "Bearer {your token}" 
+}
+```
+Returns matches
+```json
+{
+    "data": [
+        {
+            "id": 2,
+            "id_cup": 1,
+            "player_one": {
+                "id": 1,
+                "name": "new user",
+                "email": "gabriel@teste.com"
+            },
+            "player_two": {
+                "id": 2,
+                "name": "fulano",
+                "email": "fulano@teste.com"
+            },
+            "id_champion_player": null,
+            "result_one": "0 x 0",
+            "result_two": "0 x 0",
+            "finished": 0
+        },
+        {
+            "id": 3,
+            "id_cup": 1,
+            "player_one": {
+                "id": 1,
+                "name": "new user",
+                "email": "gabriel@teste.com"
+            },
+            "player_two": {
+                "id": 3,
+                "name": "User test",
+                "email": "userteste@newtest.com"
+            },
+            "id_champion_player": null,
+            "result_one": "0 x 0",
+            "result_two": "0 x 0",
+            "finished": 0
+        },
+        {
+            "id": 1,
+            "id_cup": 1,
+            "player_one": {
+                "id": 2,
+                "name": "fulano",
+                "email": "fulano@teste.com"
+            },
+            "player_two": {
+                "id": 3,
+                "name": "User test",
+                "email": "userteste@newtest.com"
+            },
+            "id_champion_player": null,
+            "result_one": "0 x 0",
+            "result_two": "0 x 0",
+            "finished": 0
+        }
+    ],
+    "count": 3,
+    "limit": 10,
+    "page": 1,
+    "pageSize": 1
+}
+```
+
+**One matches generated**
+```
+    GET /partidas/2
+```
+You have to send a header containing
+
+```json
+{   
+    "Autorization": "Bearer {your token}" 
+}
+```
+Result
+```json
+{
+    "id": 2,
+    "id_cup": 1,
+    "player_one": {
+        "id": 1,
+        "name": "new user",
+        "email": "gabriel@teste.com"
+    },
+    "player_two": {
+        "id": 2,
+        "name": "fulano",
+        "email": "fulano@teste.com"
+    },
+    "id_champion_player": null,
+    "result_one": "0 x 0",
+    "result_two": "0 x 0",
+    "finished": 0
+}
+```
+
+**report result of a match**
+```
+    PATCH /partidas/2
+```
+You have to send a header containing
+
+```json
+{   
+    "Autorization": "Bearer {your token}" 
+}
+```
+You have to send a body containing, email not update
+```json
+{
+    "score": "2 x 1"
+}
+```
+Result
+```json
+{
+    "code": "Success",
+    "message": "Resultado informado com sucesso"
+}
+```
