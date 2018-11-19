@@ -19,7 +19,7 @@ Start App
 ``` 
 Tests
 ```sh
- npm test
+ $ npm test
 ```
 
 # Documentation
