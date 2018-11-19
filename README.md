@@ -191,7 +191,75 @@ OR
     }
 ]
 ```
+**List all the matches that the player is enrolled in**
+```
+    GET /jogadores/1/partidas
+```
+You have to send a header containing
 
+```json
+{   
+    "Autorization": "Bearer {your token}" 
+}
+```
+
+Results
+```
+{
+    "data": [],
+    "count": 1,
+    "limit": 10,
+    "page": 1,
+    "pageSize": 1
+}
+```
+OR
+```json
+{
+    "data": [
+        {
+            "id": 2,
+            "id_cup": 1,
+            "player_one": {
+                "id": 1,
+                "name": "new user",
+                "email": "gabriel@teste.com"
+            },
+            "player_two": {
+                "id": 2,
+                "name": "fulano",
+                "email": "fulano@teste.com"
+            },
+            "id_champion_player": null,
+            "result_one": "0 x 0",
+            "result_two": "0 x 0",
+            "finished": 0
+        },
+        {
+            "id": 3,
+            "id_cup": 1,
+            "player_one": {
+                "id": 1,
+                "name": "new user",
+                "email": "gabriel@teste.com"
+            },
+            "player_two": {
+                "id": 3,
+                "name": "User test",
+                "email": "userteste@newtest.com"
+            },
+            "id_champion_player": null,
+            "result_one": "0 x 0",
+            "result_two": "0 x 0",
+            "finished": 0
+        }
+    ],
+    "count": 2,
+    "limit": 10,
+    "page": 1,
+    "pageSize": 1
+}
+```
 
 
 
