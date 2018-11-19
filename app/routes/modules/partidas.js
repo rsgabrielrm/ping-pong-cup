@@ -8,7 +8,7 @@ module.exports = function partidas (server) {
   server.get('/partidas', [protectd, async (req, res, next) => {
     let limit = parseInt(process.env.QUERY_LIMIT_PAGE) || 10
     const page = parseInt(req.query.page) || 1
-    const result = await db('cups').count('id as id').first()
+    const result = await db('matches').count('id as id').first()
     const count = parseInt(result.id)
     const pageSize = Math.ceil(count / limit)
     await db('matches')
