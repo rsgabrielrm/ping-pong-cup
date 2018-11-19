@@ -131,7 +131,11 @@ module.exports = function jogadores (server) {
       const {id} = req.params
       let limit = parseInt(process.env.QUERY_LIMIT_PAGE) || 10
       const page = parseInt(req.query.page) || 1
-      const result = await db('cups').count('id as id').first()
+      const result = await db('matches')
+                            .orWhere('id_player_one', id)
+                            .orWhere('id_player_two', id)
+                            .count('id as id')
+                            .first()
       const count = parseInt(result.id)
       const pageSize = Math.ceil(count / limit)
       await db('matches')
