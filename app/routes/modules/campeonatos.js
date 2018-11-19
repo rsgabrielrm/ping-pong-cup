@@ -69,7 +69,7 @@ module.exports = function campeonatos (server) {
     }
     await db('cups').where({ id }).first().then((dados) => {
       if(dados == undefined){
-        throw new restErros.NotFoundError('Campeonato não encontrado')
+        return next(new restErros.NotFoundError('Campeonato não encontrado'))
       }
       new Promise( function(resolve, reject){
         for (let i = 0; i < jogadores.length; i++) {
